@@ -1,0 +1,37 @@
+package java_soket.copy;
+
+import java.io.*;
+import java.net.*;
+
+public class CalculatorClient {
+    public static void main(String[] args) {
+        try {
+            Socket serverSocket = new Socket("localhost", 5000);
+            System.out.println("Connected to server...");
+
+            // Create input and output streams for the server socket
+            BufferedReader in = new BufferedReader(new InputStreamReader(serverSocket.getInputStream()));
+            PrintWriter out = new PrintWriter(serverSocket.getOutputStream(), true);
+
+            // Read the user's input from the console and send it to the server
+            BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
+            while (true) {
+                System.out.print("Enter your calculation: ");
+                String userInput = console.readLine();
+                if (userInput.equals("exit")) {
+                    break;
+                }
+                out.println(userInput);
+
+                // Read the result from the server and print it to the console
+                String result = in.readLine();
+                System.out.println("Result: " + result);
+            }
+
+            // Close the client socket
+            serverSocket.close();
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;calculeter/Calculator.idl&apos; to &apos;calculator.idl&apos;" description="Rename resource &apos;Calculator.idl&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Calculator.idl" name="calculator.idl" stamp="1682381329264" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;calculeter/calculator.idl&apos; to &apos;cal.idl&apos;" description="Rename resource &apos;calculator.idl&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="calculator.idl" name="cal.idl" stamp="1682381394805" updateReferences="true"/>
+</session>

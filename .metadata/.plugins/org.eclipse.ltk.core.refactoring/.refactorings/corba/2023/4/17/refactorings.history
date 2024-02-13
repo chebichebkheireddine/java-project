@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 3 elements to &apos;CorbaHello/src/hello&apos;&#x0D;&#x0A;- Original project: &apos;corba&apos;&#x0D;&#x0A;- Destination element: &apos;CorbaHello/src/hello&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     corba.HelloImpl.java&#x0D;&#x0A;     corba.HelloServeur.java&#x0D;&#x0A;     corba.HelloClient.java" description="Copy compilation units" destination="=CorbaHello/src&lt;hello" element1="/src&lt;corba{HelloImpl.java" element2="/src&lt;corba{HelloServeur.java" element3="/src&lt;corba{HelloClient.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1682375803042" units="3" version="1.0"/>
+</session>

@@ -1,0 +1,56 @@
+package java_soket.copy;
+
+import java.net.*;
+import java.io.*;
+
+public class Server {
+    public static void main(String[] args) {
+        ServerSocket server;
+        Socket socketClient;
+        BufferedReader ain;
+        PrintWriter aout;
+        
+        try {
+            server = new ServerSocket(100000);
+            System.out.println("Waiting for the client ...");
+            socketClient = server.accept();
+            System.out.println("Client connected");
+            
+            ain = new BufferedReader(new InputStreamReader(socketClient.getInputStream()));
+            aout = new PrintWriter(new OutputStreamWriter(socketClient.getOutputStream()), true);
+            
+            while (true) {
+                String input = ain.readLine();
+                if (input == null) {
+                    break;
+                }
+                String[] parts = input.split("\\s+");
+                if (parts.length != 3) {
+                    aout.println("Invalid input");
+                } else {
+                    try {
+                        int x = Integer.parseInt(parts[1]);
+                        int y = Integer.parseInt(parts[2]);
+                        if (parts[0].equals("add")) {
+                            aout.println(x + y);
+                        } else if (parts[0].equals("subtract")) {
+                            aout.println(x - y);
+                        } else {
+                            aout.println("Invalid input");
+                        }
+                    } catch (NumberFormatException e) {
+                        aout.println("Invalid input");
+                    }
+                }
+            }
+            
+            ain.close();
+            aout.close();
+            socketClient.close();
+            server.close();
+            
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}

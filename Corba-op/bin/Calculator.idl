@@ -1,0 +1,9 @@
+// Calculator.idl
+module Calculator {
+    interface CalculatorInterface {
+        double add(in double num1, in double num2);
+        double subtract(in double num1, in double num2);
+        double multiply(in double num1, in double num2);
+        double divide(in double num1, in double num2);
+    };
+};

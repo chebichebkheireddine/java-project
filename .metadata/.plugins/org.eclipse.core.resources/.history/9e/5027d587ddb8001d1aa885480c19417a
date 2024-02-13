@@ -1,0 +1,26 @@
+package modal;
+
+import java.util.Random;
+
+public class Sall_attont implements Runnable {
+	
+	int pation ;
+	
+	public Sall_attont() {
+		// TODO Auto-generated constructor stub
+	}
+	public int arive_lasall(int pation) {
+		
+		return pation;
+	}
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		while (true) {
+			pation++;
+		}
+		
+	}
+	
+
+}

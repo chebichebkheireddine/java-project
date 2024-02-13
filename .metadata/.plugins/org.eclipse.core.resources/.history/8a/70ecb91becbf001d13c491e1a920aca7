@@ -1,0 +1,25 @@
+package BookState;
+
+public class BookContext {
+	private State state;
+
+	public BookContext() {
+		// TODO Auto-generated constructor stub
+		state = new Englech();
+	}
+
+		//this is set of the next book
+	public void setBook(State state) {
+		this.state = state;
+	}
+	public String textNext() {
+		return "The next book is : ";
+	}
+	public String preNext() {
+		return "The last book is : ";
+	}
+	//this is for final valus
+	public String deflt() {
+		return "Is just open : ";
+	}
+}

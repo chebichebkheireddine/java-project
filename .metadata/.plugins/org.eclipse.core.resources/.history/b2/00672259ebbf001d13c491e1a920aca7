@@ -1,0 +1,17 @@
+package BookState;
+
+public class french extends State {
+
+	@Override
+	public String nextbook() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String prebook() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,92 @@
+package Gun;
+
+import javax.swing.*;
+import java.awt.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class ServerGUI extends JFrame {
+
+    private final JTextArea outputArea;
+    private String paragraph = "";
+
+    public ServerGUI() {
+        super("Server");
+
+        // Create and configure the output area
+        outputArea = new JTextArea();
+        outputArea.setEditable(false);
+        JScrollPane scrollPane = new JScrollPane(outputArea);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+
+        // Create and configure the input panel
+        JPanel inputPanel = new JPanel(new BorderLayout(10, 10));
+        inputPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        JLabel paragraphLabel = new JLabel("Enter the paragraph:");
+        paragraphLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
+        JTextField paragraphField = new JTextField();
+        paragraphField.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        paragraphField.addActionListener(e -> {
+            paragraph = paragraphField.getText();
+            paragraphField.setEditable(false);
+        });
+        inputPanel.add(paragraphLabel, BorderLayout.WEST);
+        inputPanel.add(paragraphField, BorderLayout.CENTER);
+
+        // Add the components to the frame
+        add(scrollPane, BorderLayout.CENTER);
+        add(inputPanel, BorderLayout.NORTH);
+
+        setSize(500, 400);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        ServerGUI serverGUI = new ServerGUI();
+
+        try {
+            ServerSocket serverSocket = new ServerSocket(50000);
+            serverGUI.printMessage("Server is listening on port 30000...");
+
+            while (true) {
+                Socket clientSocket = serverSocket.accept();
+                serverGUI.printMessage("New client connected...");
+
+                // Create input and output streams for the client socket
+                BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+                PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+
+                // Read the client's request
+                String word = in.readLine();
+
+                while (word != null) {
+                    // Search for the word in the paragraph
+                    boolean found = serverGUI.paragraph.toLowerCase().contains(word.toLowerCase());
+
+                    // Send the result to the client
+                    out.println(found ? "Word " + word + " found in the paragraph." : "Word <<" + word + ">> not found in the paragraph.");
+
+                    // Print the request and response to the output area
+                    serverGUI.printMessage("Client request: " + word);
+                    serverGUI.printMessage("Server response: " + (found ? "Word ::" + word + "-->> found in the paragraph." : "Word <<" + word + ">> not found in the paragraph."));
+
+                    // Read the next client request
+                    word = in.readLine();
+                }
+            }
+        } catch (IOException e) {
+            serverGUI.printMessage("Error: " + e.getMessage());
+        }
+    }
+
+    private void printMessage(String message) {
+        outputArea.append(message + "\n");
+        outputArea.setCaretPosition(outputArea.getDocument().getLength());
+    }
+}

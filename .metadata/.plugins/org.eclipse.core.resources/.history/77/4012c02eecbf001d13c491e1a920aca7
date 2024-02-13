@@ -1,0 +1,22 @@
+package BookState;
+
+public class french extends State {
+
+	public french(BookContext bookContext) {
+		super(bookContext);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String nextbook() {
+		bookContext.setBook(new arab());
+		return bookContext.textNext()+" Arabe";
+	}
+
+	@Override
+	public String prebook() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

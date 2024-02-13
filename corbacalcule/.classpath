@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="jacorb-3.9.jar"/>
+	<classpathentry kind="lib" path="jacorb-omgapi-3.9.jar"/>
+	<classpathentry kind="lib" path="logback-classic.jar"/>
+	<classpathentry kind="lib" path="net.sf.eclipsecorba.idl_0.7.0.218.jar"/>
+	<classpathentry kind="lib" path="net.sf.eclipsecorba.idl.edit_0.7.0.218.jar"/>
+	<classpathentry kind="lib" path="net.sf.eclipsecorba.openorb_0.7.0.197.jar"/>
+	<classpathentry kind="lib" path="net.sf.eclipsecorba.ui_0.7.0.218.jar"/>
+	<classpathentry kind="lib" path="rt-4.0.1.jar"/>
+	<classpathentry kind="lib" path="slf4j-api-1.7.2.jar"/>
+	<classpathentry kind="lib" path="slf4j-api-2.0.7.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

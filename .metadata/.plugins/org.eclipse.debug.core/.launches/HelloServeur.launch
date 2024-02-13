@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+        <listEntry value="/corba/src/corba/HelloServeur.java"/>
+    </listAttribute>
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+        <listEntry value="1"/>
+    </listAttribute>
+    <listAttribute key="org.eclipse.eclemma.core.SCOPE_IDS">
+        <listEntry value="=corba/net.sf.eclipsecorba.idl.edit_0.7.0.218.jar"/>
+        <listEntry value="=corba/jacorb-omgapi-3.9.jar"/>
+        <listEntry value="=corba/net.sf.eclipsecorba.ui_0.7.0.218.jar"/>
+        <listEntry value="=corba/net.sf.eclipsecorba.idl_0.7.0.218.jar"/>
+        <listEntry value="=corba/slf4j-api-1.7.14.jar"/>
+        <listEntry value="=corba/net.sf.eclipsecorba.openorb_0.7.0.197.jar"/>
+        <listEntry value="=corba/src"/>
+        <listEntry value="=corba/jacorb-3.9.jar"/>
+    </listAttribute>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_ATTR_USE_ARGFILE" value="false"/>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_EXCLUDE_TEST_CODE" value="true"/>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_SHOW_CODEDETAILS_IN_EXCEPTION_MESSAGES" value="true"/>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_CLASSPATH_ONLY_JAR" value="false"/>
+    <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="corba.HelloServeur"/>
+    <stringAttribute key="org.eclipse.jdt.launching.MODULE_NAME" value="corba"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="corba"/>
+</launchConfiguration>

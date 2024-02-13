@@ -1,0 +1,42 @@
+package java_soket.copy;
+
+import java.net.*;
+
+import java.util.Scanner;
+import java.io.*;
+
+public class Client {
+    public static void main(String[] args) {
+        BufferedReader ain;
+        BufferedWriter aout;
+        Socket socketClient;
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            socketClient = new Socket("localhost", 10000));
+            ain = new BufferedReader(new InputStreamReader(socketClient.getInputStream()));
+            aout = new BufferedWriter(new OutputStreamWriter(socketClient.getOutputStream()));
+
+            while (true) {
+                System.out.print("> ");
+                String input = scanner.nextLine();
+                if (input.equals("exit")) {
+                    break;
+                }
+                aout.write(input);
+                aout.newLine();
+                aout.flush();
+
+                String response = ain.readLine();
+                System.out.println(response);
+            }
+
+            ain.close();
+            aout.close();
+            socketClient.close();
+
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}

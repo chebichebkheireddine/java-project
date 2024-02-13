@@ -1,0 +1,53 @@
+package db;
+
+import java.rmi.Naming;
+import java.rmi.RemoteException;
+import java.util.List;
+import javax.swing.*;
+
+public class DatabaseClient {
+    public static void main(String[] args) {
+        try {
+            DatabaseService service = (DatabaseService) Naming.lookup("rmi://localhost/DatabaseServicel");
+
+            // Create a window with a button to add a new person and a list to display all people
+            JFrame frame = new JFrame("Database Client");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            JPanel panel = new JPanel();
+            frame.add(panel);
+            JButton addButton = new JButton("Add Person");
+            panel.add(addButton);
+            DefaultListModel<Person> listModel = new DefaultListModel<>();
+            JList<Person> personList = new JList<>(listModel);
+            panel.add(new JScrollPane(personList));
+
+            // Define the action to take when the "Add Person" button is clicked
+            addButton.addActionListener(e -> {
+                String name = JOptionPane.showInputDialog("Enter name:");
+                int age = Integer.parseInt(JOptionPane.showInputDialog("Enter age:"));
+                Person person = new Person(0, name, age); // ID will be assigned by server
+                try {
+                    service.addPerson(person);
+                    listModel.addElement(person);
+                } catch (RemoteException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(frame, "Error adding person to database.");
+                }
+            });
+
+            // Display all people in the list
+            List<Person> people = service.getAllPeople();
+            for (Person person : people) {
+                listModel.addElement(person);
+            }
+
+            // Show the window
+            frame.pack();
+            frame.setVisible(true);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error connecting to database service.");
+        }
+    }
+}

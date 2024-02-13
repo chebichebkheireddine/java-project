@@ -1,0 +1,12 @@
+package modal;
+
+public class main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Sall_attont n=new Sall_attont(0);
+		System.out.println(n);
+	}
+
+}

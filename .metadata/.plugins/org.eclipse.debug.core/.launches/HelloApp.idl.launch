@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.ui.externaltools.ProgramLaunchConfigurationType">
+    <stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="C:\Program Files\Java\jdk1.8.0_281\bin\idlj.exe"/>
+    <stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="-fall src/HelloApp.idl"/>
+    <stringAttribute key="org.eclipse.ui.externaltools.ATTR_WORKING_DIRECTORY" value="${workspace_loc:/corba}"/>
+</launchConfiguration>

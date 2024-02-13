@@ -1,0 +1,54 @@
+package java_soket.copy;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+
+
+public class Server {
+    public static void main(String[] args) {
+        try {
+            ServerSocket serverSocket = new ServerSocket(6000);
+            System.out.println("Server is listening on port 5000...");
+
+            while (true) {
+                Socket clientSocket = serverSocket.accept();
+                System.out.println("New client connected...");
+
+                // Create input and output streams for the client socket
+                BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+                PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+
+                // Read the client's request and split it into operands and operator
+                String request = in.readLine();
+                String[] tokens = request.split(" ");
+                int operand1 = Integer.parseInt(tokens[0]);
+                int operand2 = Integer.parseInt(tokens[2]);
+                String operator = tokens[1];
+
+                // Perform the calculation based on the operator
+                int result = 0;
+                if (operator.equals("+")) {
+                    result = operand1 + operand2;
+                } else if (operator.equals("-")) {
+                    result = operand1 - operand2;
+                } else if (operator.equals("*")) {
+                    result = operand1 * operand2;
+                } else if (operator.equals("/")) {
+                    result = operand1 * operand2;
+                }else {
+                    out.println("Invalid operator");
+                    continue;
+                }
+
+                // Send the result to the client
+                out.println(result);
+            }
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}

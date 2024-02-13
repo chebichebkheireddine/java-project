@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.util.Random"/>
+    <fullyQualifiedTypeName name="State.State"/>
+    <fullyQualifiedTypeName name="State.Phone"/>
+    <fullyQualifiedTypeName name="javax.swing.JButton"/>
+    <fullyQualifiedTypeName name="javax.swing.JLabel"/>
+    <fullyQualifiedTypeName name="javax.swing.JFrame"/>
+    <fullyQualifiedTypeName name="javax.swing.JPanel"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="java.rmi.registry.LocateRegistry"/>
+    <fullyQualifiedTypeName name="Rmi.CalculatorImpl"/>
+    <fullyQualifiedTypeName name="Rmi2.com.Operation"/>
+    <fullyQualifiedTypeName name="javax.swing.JTextField"/>
+    <fullyQualifiedTypeName name="java.awt.Dimension"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="java.util.EnumMap"/>
+    <fullyQualifiedTypeName name="javax.crypto.spec.SecretKeySpec"/>
+    <fullyQualifiedTypeName name="java.security.SecureRandom"/>
+    <fullyQualifiedTypeName name="java.util.Base64"/>
+    <fullyQualifiedTypeName name="org.omg.CosNaming.NamingContextExt"/>
+    <fullyQualifiedTypeName name="org.omg.CosNaming.NameComponent"/>
+    <fullyQualifiedTypeName name="org.omg.CosNaming.NamingContextExtHelper"/>
+    <fullyQualifiedTypeName name="Calculator.CalculatorInterfaceHelper"/>
+    <fullyQualifiedTypeName name="java.lang.Object"/>
+    <fullyQualifiedTypeName name="java.util.concurrent.Semaphore"/>
+    <fullyQualifiedTypeName name="Calculator.CalculatorInterfacePOA"/>
+</qualifiedTypeNameHistroy>

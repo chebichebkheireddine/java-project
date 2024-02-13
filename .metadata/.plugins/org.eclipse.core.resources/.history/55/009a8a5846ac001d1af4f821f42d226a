@@ -1,0 +1,32 @@
+import java.net.*;
+import java.io.*;
+
+public class Client {
+    public static void main(String[] args) {
+        try {
+            // Create a socket object with the server's IP address and port number
+            Socket socket = new Socket("serverIP", portNumber);
+
+            // Open an input stream to read data from the server and an output stream to send data to the server
+            InputStream inputStream = socket.getInputStream();
+            OutputStream outputStream = socket.getOutputStream();
+
+            // Send data to the server using the output stream
+            String data = "Hello, server!";
+            outputStream.write(data.getBytes());
+
+            // Read data from the server using the input stream
+            byte[] buffer = new byte[1024];
+            int bytesRead = inputStream.read(buffer);
+            String response = new String(buffer, 0, bytesRead);
+            System.out.println("Server response: " + response);
+
+            // Close the socket and streams when finished
+            outputStream.close();
+            inputStream.close();
+            socket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
